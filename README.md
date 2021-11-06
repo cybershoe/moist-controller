@@ -13,7 +13,7 @@ The MOiST valve is designed to be:
 
 ### Simple
 
-The controller does one thing: controll a valve. Once added into Home Assistant, the controller exposeses a switch that
+The controller does one thing: control a valve. Once added into Home Assistant, the controller exposeses a switch that
 opens or closes the valve, sensors for water flow rate and total water consumption, and battery power monitoring. That's
 it. You are free to use whatever mechanism you want to manage the valves, including HA automations, Node-RED flows, or
 any other platform that integratges with Home Assistant.
