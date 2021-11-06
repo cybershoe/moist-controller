@@ -64,6 +64,14 @@ to stabilize, the MCU waits for the capacitor voltage to exceed the 8.2v referen
 !CHGD line low. Once the capacitor is charged, the MCU pulses the DRV_1 or DRV_2 pin for the appropriate duration to open or
 close the valve, respectively, and then brings DRV_EN low to power off the driver circuitry and preserve energy.
 
+## A Note about WiFI:
+
+ESP power consumption is significantly affected (sometimes by a factor of 2 or more) by how long the modem can stay in sleep mode.
+To minimize power consumption, consider the following:
+
+- Increase your DTIM beacon interval. This increases how long the ESP can stay asleep before waking up to check for data.
+- Broadcast traffic causes the modem to wake up, including mDNS. Consider creating a separate WLAN and subnet for your low-power ESP devices, and use static IPs in ESPHome to minimize the amount of broadcast traffic reaching the ESPs.
+
 ## Current status and next steps
 
 ### 11-6-2021:
