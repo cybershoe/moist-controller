@@ -60,8 +60,8 @@ The solenoid driver consists of an unregulated boost converter PS1 that raises t
 enough energy to drive the solenoid, an H-bridge driver U6 to drive the solenoid in the appropriate direction, and a comparator 
 U7 with an 8.2V reference D2 to indicate when the capacitor is sufficiently charged. To open or close the solenoid, the MCU first
 sets the DRV_EN pin HIGH, which powers up the boost converter and enables the H-Bridge. After a short delay for the comparator
-to stabilize, the MCU waits for the capacitor voltage to exceed the 8.2v referenced, causing the comparator to bring the
-!CHGD line low. Once the capacitor is charged, the MCU pulses the DRV_1 or DRV_2 pin for the appropriate duration to open or
+to stabilize, the MCU waits for the capacitor voltage to exceed the 8.2v reference, causing the comparator to bring the
+!CHGD line LOW. Once the capacitor is charged, the MCU pulses the DRV_1 or DRV_2 pin HIGH for the appropriate duration to open or
 close the valve, respectively, and then brings DRV_EN low to power off the driver circuitry and preserve energy.
 
 ## A Note about WiFI:
