@@ -74,7 +74,7 @@ To minimize power consumption, consider the following:
 
 ## Current status and next steps
 
-### 11-6-2021:
+### 2021-11-06:
 The breadboard prototype is functionally complete, and an order has been placed with OSHPark for a batch of boards for a
 final prototype. 
 
