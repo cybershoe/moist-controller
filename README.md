@@ -39,7 +39,7 @@ powered off unless actively being used. On a quiet WiFi network, power consumpti
 - Install a charged 18650 battery and press the "START" button to enable the battery protection circuit
 - Connect a 3.3v USB to TTL adapter to the UART pin header JP1
 > :information_source: The pinout isn't marked on the silkscreen, but it goes "GND, RXD, TXD" with 
-[TXD closest to the ESP module.](/images/UART.png)
+[RXD closest to the ESP module.](/images/UART.png)
 - Install the ESPHome firmware with [this configuration](/moist-valve.yaml)
 - Connect a 6V 1W solar panel to PV IN
 - Connect your 9V latching irrigation valve solenoid to SOL
