@@ -1,0 +1,125 @@
+esphome:
+  name: moist-valve
+  platform: ESP8266
+  board: esp_wroom_02
+ 
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: ""
+
+wifi:
+  ssid: ""
+  password: ""
+  power_save_mode: high
+  
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "moist-valve Fallback Hotspot"
+    password: ""
+
+captive_portal:
+
+i2c:
+  id: bus_a
+  sda: GPIO4
+  scl: GPIO5
+
+sensor:
+  - platform: ina219
+    address: 0x45
+    shunt_resistance: 0.01 ohm
+    current:
+      name: "Battery Current"
+      accuracy_decimals: 2
+      unit_of_measurement: mA
+      filters:
+        - multiply: 1000
+    power: 
+      name: "Battery Power"
+      accuracy_decimals: 2
+      unit_of_measurement: mW
+      filters:
+        - multiply: 1000
+    bus_voltage:
+      name: "Battery Voltage"
+    shunt_voltage:
+      name: "Shunt Voltage"
+      accuracy_decimals: 2
+      unit_of_measurement: mV
+      filters:
+        - multiply: 1000
+    update_interval: 10s
+	
+  - platform: pulse_meter
+    pin: GPIO12
+    unit_of_measurement: "L/minute"
+    timeout: 3s
+    name: "Water Flow Rate"
+    id: water_meter
+    filters:
+      - multiply: 0.0035
+      - throttle: 1s
+    total:
+      name: "Total Water Consumption"
+      unit_of_measurement: "L"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.0035
+        - throttle: 1s
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+      inverted: true
+    id: CHGD
+
+output:
+  - platform: gpio
+    pin: GPIO14
+    id: DRV_EN
+  - platform: gpio
+    pin: GPIO0
+    id: DRV_1
+  - platform: gpio
+    pin: GPIO15
+    id: DRV_2
+
+switch:
+  - platform: template
+    id: valve_switch
+    name: Valve
+    icon: mdi:valve
+    turn_on_action:
+      then:
+        - output.turn_on: DRV_EN
+        - delay: 100ms
+        - wait_until:
+            binary_sensor.is_on: CHGD
+        - output.turn_on: DRV_2
+		# Adjust pulse delay as needed for your valve
+        - delay: 10ms
+        - output.turn_off: DRV_2
+        - output.turn_off: DRV_EN
+        - switch.template.publish:
+            id: valve_switch
+            state: !lambda 'return true;'
+    turn_off_action:
+      then:
+        - output.turn_on: DRV_EN
+        - delay: 100ms
+        - wait_until:
+            binary_sensor.is_on: CHGD
+        - output.turn_on: DRV_1
+		# Adjust pulse delay as needed for your valve
+        - delay: 5ms
+        - output.turn_off: DRV_1
+        - output.turn_off: DRV_EN
+        - switch.template.publish:
+            id: valve_switch
+            state: !lambda 'return false;'

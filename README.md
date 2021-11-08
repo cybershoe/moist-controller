@@ -34,6 +34,15 @@ point where it can run off of a 5-Watt, 6-Volt solar panel and a 18650 battery w
 growing season. Components were selected for low quiescent power, and the most inefficient parts of the controller are
 powered off unless actively being used. On a quiet WiFi network, power consumption averages around 30mA
 
+## Usage
+
+- Install a charged 18650 battery and press the "START" button to enable the battery protection circuit
+- Connect a 3.3v USB to TTL adapter to the UART pin header
+- Install the ESPHome firmware with [this configuration](/moist-valve.yaml)
+- Connect a 6V 1W solar panel to PV IN
+- Connect your 9V latching irrigation valve solenoid to SOL
+- Connect your 
+
 ## Theory of Operation
 
 ![Schematic](/images/Main_Board.svg?raw=true)
@@ -80,7 +89,6 @@ final prototype.
 
 ### TODO:
 - Test prototybe boards
-- Create template YAML for ESPHome
 - Model and print enclosure and mounting hardware
 - Assemble valve components
 
