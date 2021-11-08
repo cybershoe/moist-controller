@@ -54,7 +54,7 @@ sensor:
       filters:
         - multiply: 1000
     update_interval: 10s
-	
+
   - platform: pulse_meter
     pin: GPIO12
     unit_of_measurement: "L/minute"
