@@ -41,7 +41,8 @@ powered off unless actively being used. On a quiet WiFi network, power consumpti
 - Install the ESPHome firmware with [this configuration](/moist-valve.yaml)
 - Connect a 6V 1W solar panel to PV IN
 - Connect your 9V latching irrigation valve solenoid to SOL
-- Connect your 
+- Connect your water flow meter to METER
+- Place the valve where the solar panel will receive full sun, connect your hoses, and begin MOiSTening your plants!
 
 ## Theory of Operation
 
