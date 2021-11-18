@@ -102,7 +102,7 @@ switch:
         - wait_until:
             binary_sensor.is_on: CHGD
         - output.turn_on: DRV_2
-		# Adjust pulse delay as needed for your valve
+        # Adjust pulse delay as needed for your valve
         - delay: 10ms
         - output.turn_off: DRV_2
         - output.turn_off: DRV_EN
@@ -116,7 +116,7 @@ switch:
         - wait_until:
             binary_sensor.is_on: CHGD
         - output.turn_on: DRV_1
-		# Adjust pulse delay as needed for your valve
+        # Adjust pulse delay as needed for your valve
         - delay: 5ms
         - output.turn_off: DRV_1
         - output.turn_off: DRV_EN
