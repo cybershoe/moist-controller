@@ -59,7 +59,7 @@ minimize power requirements (USB-UART, LEDs, 5v regulator, etc.)
 ### Battery and Power Management
 
 The system uses a standard 18560-style, unprotected Li-ion battery. Over-charge, over-discharge, over-current, and short
-protection are provided by a BQ29733 protection IC U2, and solar charging is handled by a BQ24210 soalr charger U1 in battery
+protection are provided by a BQ29733 protection IC U2, and solar charging is handled by a BQ24210 solar charger U1 in battery
 tracking mode, to maximize charging ability with low solar panel outputs. The charger can take any 6-volt solar panel, and
 will charge at up to 800 mA. An LP3693MPX LDO regulator U3 provides 3.3V to the the rest of the components. An INA219 I2C
 wattmeter U5 monnitors the battery voltage and current flowing in/out of the battery.
@@ -74,7 +74,7 @@ to stabilize, the MCU waits for the capacitor voltage to exceed the 8.2v referen
 !CHGD line LOW. Once the capacitor is charged, the MCU pulses the DRV_1 or DRV_2 pin HIGH for the appropriate duration to open or
 close the valve, respectively, and then brings DRV_EN low to power off the driver circuitry and preserve energy.
 
-## A Note about WiFI:
+## A Note about WiFi:
 
 ESP power consumption is significantly affected (sometimes by a factor of 2 or more) by how long the modem can stay in sleep mode.
 To minimize power consumption, consider the following:
