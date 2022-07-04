@@ -3,7 +3,7 @@
 
 ## Overview
 
-![Board Render](/images/Main_Board.png?raw=true)
+![Assembled Valve](/images/assembled.jpg?raw=true)
 
 The Moisture-Optimization through Solar Technology (MOiST) Controller is a distributed, solar-powered, ESP8266-based
 controller that exposes standard irrigation valves into [Home Assistant](https://www.home-assistant.io/) through
@@ -45,7 +45,7 @@ powered off unless actively being used. On a quiet WiFi network, power consumpti
 - Place the valve where the solar panel will receive full sun, connect your hoses, and begin MOiSTening your plants!
 
 ## Theory of Operation
-
+![Board Render](/images/Main_Board.png?raw=true)
 ![Schematic](/images/Main_Board.svg?raw=true)
 
 The controller has 3 main functional areas: battery and power management, the solenoid driver, and the MCU.
@@ -84,6 +84,11 @@ To minimize power consumption, consider the following:
 
 ## Current status and next steps
 
+### 2022-07-04
+- Working first revision hardware completed
+- Abandoned 3D printed custom enclosure, used off-the-shelf Hammond enclosure and a mounting plate for the Rev. 1.1B boards
+- 3D printed a bracket to mount the solar panel at a 45° angle on a 3/4" square aluminium post
+
 ### 2021-11-18
 - Fixed incorrect boot mode pull-up/down resistors
 - Added reset button
@@ -96,9 +101,8 @@ The breadboard prototype is functionally complete, and an order has been placed 
 final prototype. 
 
 ### TODO:
-- Test 2nd prototybe boards
-- Print and test enclosure
-- Assemble valve components
+- NodeRED flows for irrigation timing
+- Optimize board for smaller enclosure
 
 
 This work is licensed under a
