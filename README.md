@@ -85,6 +85,12 @@ To minimize power consumption, consider the following:
 ## Current status and next steps
 
 ### 2022-07-04
+- Added solder jumper between GPIO16 and RST to allow deep sleep
+- Redesigned board to fit Hammond 1555FF43GY enclosure
+- Ordered redesigned boards (Rev 2.0A)
+
+
+### 2022-07-04
 - Working first revision hardware completed: [Video](https://youtu.be/AA5Or_j-FIE)
 - Abandoned 3D printed custom enclosure, used off-the-shelf Hammond enclosure and a mounting plate for the Rev. 1.1B boards
 - 3D printed a bracket to mount the solar panel at a 45° angle on a 3/4" square aluminium post
